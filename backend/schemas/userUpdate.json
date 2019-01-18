@@ -61,9 +61,7 @@
       "type": "string",
       "title": "The Token Schema ",
       "default": "",
-      "examples": [
-        "foo123"
-      ]
+      "examples": ["foo123"]
     }
   }
 }
