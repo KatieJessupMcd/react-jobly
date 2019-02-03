@@ -39,26 +39,33 @@ class Jobs extends Component {
 
   render() {
     // will need to pass a onSubmit handler to the searchform for generating a request
+    console.log('this.state.jobs', this.state.jobs);
+    console.log('this is the current user', this.props.currentUser);
+    // **BUG - there is not a a job key in currentUser when you first sign in a new user
     return (
-      <div className="Jobs">
-        <SearchForm handleSearch={this.searchJobs} />
-        {this.state.jobs.length > 0 ? (
-          this.state.jobs.map(j => (
-            <JobCard
-              handleApply={this.props.handleApply}
-              handleUpdate={this.props.handleUpdate}
-              key={j.id}
-              title={j.title}
-              salary={j.salary}
-              equity={j.equity}
-              id={j.id}
-              currentUser={this.props.currentUser}
-              applied={this.props.currentUser.jobs.find(job => job.id === j.id)}
-            />
-          ))
-        ) : (
-          <h3>Loading jobs...</h3>
-        )}
+      <div className="pt-5">
+        <div className="Jobs col-md-8 offset-md-2">
+          <SearchForm handleSearch={this.searchJobs} />
+          {this.state.jobs.length > 0 ? (
+            this.state.jobs.map(j => (
+              <JobCard
+                handleApply={this.props.handleApply}
+                handleUpdate={this.props.handleUpdate}
+                key={j.id}
+                title={j.title}
+                salary={j.salary}
+                equity={j.equity}
+                id={j.id}
+                currentUser={this.props.currentUser}
+                applied={this.props.currentUser.jobs.find(
+                  job => job.id === j.id
+                )}
+              />
+            ))
+          ) : (
+            <h3>Loading jobs...</h3>
+          )}
+        </div>
       </div>
     );
   }
