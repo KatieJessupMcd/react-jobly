@@ -42,11 +42,10 @@ class App extends Component {
   async handleSignUp(username, password, first_name, last_name, email) {
     try {
       await JoblyApi.signUp(username, password, first_name, last_name, email);
-
       this.setState(
         {
           isLoggedIn: true,
-          currentUser: { username, first_name, last_name, email, photo_url: '' }
+          currentUser: { username, first_name, last_name, email, photo_url: '', jobs: [] }
         },
         () => this.props.history.replace('/jobs')
       );

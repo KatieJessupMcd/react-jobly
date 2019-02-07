@@ -39,9 +39,6 @@ class Jobs extends Component {
 
   render() {
     // will need to pass a onSubmit handler to the searchform for generating a request
-    console.log('this.state.jobs', this.state.jobs);
-    console.log('this is the current user', this.props.currentUser);
-    // **BUG - there is not a a job key in currentUser when you first sign in a new user
     return (
       <div className="pt-5">
         <div className="Jobs col-md-8 offset-md-2">
