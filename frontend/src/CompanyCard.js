@@ -7,22 +7,20 @@ class CompanyCard extends Component {
     logo: genericLogo
   };
   render() {
-    // create CSS style sheet and remove inline style
-    // ** Added card title h5, took out styling on card div
-    // could destructure this.props to avoid repetition
+   let { handle, name, logo, desc} = this.props; 
     return (
-      <Link to={`/companies/${this.props.handle}`}>
-        <div className="CompanyCard card ">
+      <Link to={`/companies/${handle}`}>
+        <div className="CompanyCard card my-3">
           <div className="card-body">
             <h5 className="card-title d-flex justify-content-between">
-              <span>{this.props.name}</span>
+              <span>{name}</span>
               <img
-                src={this.props.logo}
+                src={logo}
                 style={{ width: '50px', contentAlign: 'right' }}
                 alt="company logo"
               />
             </h5>
-            <p>{this.props.desc}</p>
+            <p>{desc}</p>
           </div>
         </div>
       </Link>

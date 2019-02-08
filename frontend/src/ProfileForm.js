@@ -43,89 +43,93 @@ class ProfileForm extends Component {
     }
   }
   render() {
-    // console.log('curr user in prof', this.props.currentUser);
     return (
-      <div className="card">
-        <div className="card-body p-1.25">
-          <form onSubmit={this.handleProfileUpdate}>
-            <div className="form-group">
-              <label htmlFor="exampleInputEmail1">Username</label>
-              <p className="form-control-plaintext">
-                {this.props.currentUser.username}
-              </p>
-            </div>
-            <div className="form-group">
-              <label htmlFor="examplefirst_name">First name</label>
-              <input
-                onChange={this.handleChange}
-                name="first_name"
-                value={this.state.first_name}
-                type="first_name"
-                className="form-control"
-                id="exampleInputfirst_name1"
-                placeholder={this.props.currentUser.first_name}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="examplelast_name">Last Name</label>
-              <input
-                onChange={this.handleChange}
-                name="last_name"
-                value={this.state.last_name}
-                type="last_name"
-                className="form-control"
-                id="exampleInputlast_name1"
-                placeholder={this.props.currentUser.last_name}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleemail">Email</label>
-              <input
-                onChange={this.handleChange}
-                name="email"
-                value={this.state.email}
-                type="email"
-                className="form-control"
-                id="exampleInputemail1"
-                placeholder={this.props.currentUser.email}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleemail">Photo URL</label>
-              <input
-                onChange={this.handleChange}
-                name="photo_url"
-                value={this.state.photo_url}
-                type="uri"
-                className="form-control"
-                id="photo_url"
-                placeholder={this.props.currentUser.photo_url}
-              />
-            </div>
-            <div className="form-group">
-              <label htmlFor="exampleInputPassword1">Re-enter Password</label>
-              <input
-                onChange={this.handleChange}
-                name="password"
-                value={this.state.password}
-                type="password"
-                className="form-control"
-                id="exampleInputPassword1"
-                placeholder="Password"
-              />
-            </div>
-
-            <button type="submit" className="btn btn-primary">
-              Save Changes
-            </button>
-            {this.state.hasUpdated ? (
-              <div className="alert alert-success fade show mt-3" role="alert">
-                {this.props.currentUser.username} has successfully updated!
+      <div className="profileForm pt-5">
+        <div className="card col-md-8 offset-md-2">
+          <div className="card-body p-1.25">
+            <form onSubmit={this.handleProfileUpdate}>
+              <div className="form-group">
+                <label htmlFor="exampleInputEmail1">Username</label>
+                <p className="form-control-plaintext">
+                  {this.props.currentUser.username}
+                </p>
               </div>
-            ) : (
-              ''
-            )}
-          </form>
+              <div className="form-group">
+                <label htmlFor="examplefirst_name">First name</label>
+                <input
+                  onChange={this.handleChange}
+                  name="first_name"
+                  value={this.state.first_name}
+                  type="first_name"
+                  className="form-control"
+                  id="exampleInputfirst_name1"
+                  placeholder={this.props.currentUser.first_name}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="examplelast_name">Last Name</label>
+                <input
+                  onChange={this.handleChange}
+                  name="last_name"
+                  value={this.state.last_name}
+                  type="last_name"
+                  className="form-control"
+                  id="exampleInputlast_name1"
+                  placeholder={this.props.currentUser.last_name}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleemail">Email</label>
+                <input
+                  onChange={this.handleChange}
+                  name="email"
+                  value={this.state.email}
+                  type="email"
+                  className="form-control"
+                  id="exampleInputemail1"
+                  placeholder={this.props.currentUser.email}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleemail">Photo URL</label>
+                <input
+                  onChange={this.handleChange}
+                  name="photo_url"
+                  value={this.state.photo_url}
+                  type="uri"
+                  className="form-control"
+                  id="photo_url"
+                  placeholder={this.props.currentUser.photo_url}
+                />
+              </div>
+              <div className="form-group">
+                <label htmlFor="exampleInputPassword1">Re-enter Password</label>
+                <input
+                  onChange={this.handleChange}
+                  name="password"
+                  value={this.state.password}
+                  type="password"
+                  className="form-control"
+                  id="exampleInputPassword1"
+                  placeholder="Password"
+                />
+              </div>
+
+              <button type="submit" className="btn btn-primary">
+                Save Changes
+              </button>
+              {this.state.hasUpdated ? (
+                <div
+                  className="alert alert-success fade show mt-3"
+                  role="alert"
+                >
+                  {this.props.currentUser.username} has successfully updated!
+                </div>
+              ) : (
+                ''
+              )}
+            </form>
+          </div>
         </div>
       </div>
     );

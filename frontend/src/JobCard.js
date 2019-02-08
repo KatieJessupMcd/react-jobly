@@ -46,14 +46,16 @@ class JobCard extends Component {
             <p>Equity: {this.props.equity}</p>
           </h5>
         </div>
-        <button
-          onClick={this.handleClick}
-          type="button"
-          className="btn btn-danger"
-          disabled={this.state.applied}
-        >
-          {this.state.applied ? 'Applied' : 'Apply'}
-        </button>
+        <div className="button p-3 ml-auto">
+          <button
+            onClick={this.handleClick}
+            type="button"
+            className="btn btn-danger"
+            disabled={this.state.applied}
+          >
+            {this.state.applied ? 'Applied' : 'Apply'}
+          </button>
+        </div>
       </div>
     );
   }

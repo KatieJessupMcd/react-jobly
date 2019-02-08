@@ -4,8 +4,6 @@ import NavBar from './NavBar';
 import JoblyApi from './JoblyApi';
 import { withRouter } from 'react-router-dom';
 import decode from 'jwt-decode';
-// import { getCompany, getAllCompanies } from './JoblyApi';
-
 import './App.css';
 
 class App extends Component {

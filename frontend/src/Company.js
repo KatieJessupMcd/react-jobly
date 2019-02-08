@@ -16,7 +16,6 @@ class Company extends Component {
   }
 
   async componentDidMount() {
-    console.log('company handle:', this.props.match.params.name);
     try {
       const companyHandle = this.props.match.params.name;
       const company = await JoblyApi.getCompany(companyHandle);
@@ -32,23 +31,24 @@ class Company extends Component {
   }
 
   render() {
-    // could destructure date for less repetition
+    let { name, description, jobs } = this.state; 
+    let { handleApply, handleUpdate, currentUser } = this.props; 
     return (
-      <div className="Company">
-        <h3>{this.state.name}</h3>
-        <p>{this.state.description}</p>
-        {this.state.jobs.length > 0 ? (
-          this.state.jobs.map(j => (
+      <div className="Company col-md-8 offset-md-2 pt-5">
+        <h3>{name}</h3>
+        <p>{description}</p>
+        {jobs.length > 0 ? (
+          jobs.map(j => (
             <JobCard
-              handleApply={this.props.handleApply}
-              handleUpdate={this.props.handleUpdate}
+              handleApply={handleApply}
+              handleUpdate={handleUpdate}
               key={j.id}
               title={j.title}
               salary={j.salary}
               equity={j.equity}
               id={j.id}
-              currentUser={this.props.currentUser}
-              applied={this.props.currentUser.jobs.find(job => job.id === j.id)}
+              currentUser={currentUser}
+              applied={currentUser.jobs.find(job => job.id === j.id)}
             />
           ))
         ) : (

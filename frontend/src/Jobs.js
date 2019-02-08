@@ -40,7 +40,6 @@ class Jobs extends Component {
   render() {
     // will need to pass a onSubmit handler to the searchform for generating a request
     return (
-      <div className="pt-5">
         <div className="Jobs col-md-8 offset-md-2">
           <SearchForm handleSearch={this.searchJobs} />
           {this.state.jobs.length > 0 ? (
@@ -63,7 +62,7 @@ class Jobs extends Component {
             <h3>Loading jobs...</h3>
           )}
         </div>
-      </div>
+    
     );
   }
 }

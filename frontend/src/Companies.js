@@ -27,7 +27,6 @@ class Companies extends Component {
 
   async searchCompanies(query) {
     try {
-      console.log('QUERY inside companies component', query);
       this.setState({
         companies: await JoblyApi.getAllCompanies(query)
       });
@@ -35,14 +34,12 @@ class Companies extends Component {
       this.setState({
         error: true
       });
-      console.log('error msg', error);
     }
   }
 
   render() {
-    // console.log(this.state.companies);
     return (
-      <div className="Companies">
+      <div className="Companies col-md-8 offset-md-2">
         <SearchForm handleSearch={this.searchCompanies} />
         {this.state.companies.length > 0 ? (
           this.state.companies.map(c => (

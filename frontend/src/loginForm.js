@@ -49,7 +49,7 @@ class LoginForm extends Component {
 
   render() {
     const loginForm = (
-      <div className="card">
+      <div className="card col-md-8 offset-md-2">
         <div className="card-body p-1.25">
           <form onSubmit={this.handleSubmitLogin}>
             <div className="form-group">
@@ -77,7 +77,6 @@ class LoginForm extends Component {
                 placeholder="Password"
               />
             </div>
-
             <button type="submit" className="btn btn-primary">
               Submit
             </button>
@@ -87,7 +86,7 @@ class LoginForm extends Component {
     );
 
     const signUpForm = (
-      <div className="card">
+      <div className="card col-md-8 offset-md-2 ">
         <div className="card-body p-1.25">
           <form onSubmit={this.handleSubmitSignUp}>
             <div className="form-group">
@@ -163,7 +162,7 @@ class LoginForm extends Component {
     return (
       <div>
         <div
-          className="btn-group mr-auto"
+          className="btn-group pt-5 "
           role="group"
           aria-label="Basic example"
         >
