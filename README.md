@@ -20,8 +20,20 @@ Run the following command to install the necessary packages in the root folder:
 npm install
 ```
 
-Run the following command to start the app: 
+You will need to start the front end and the back end in seperate tabs in the terminal
+
+To start the front end server: 
 
 ```
+cd frontend
 npm start
 ```
+
+Open a new tab in the terminal with the shortcut, command T
+
+To start the back end server:
+```
+cd backend
+nodemon
+```
+The app should now be running in your browser
