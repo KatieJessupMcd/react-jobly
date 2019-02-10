@@ -2,3 +2,11 @@
   text-align: center;
   height: 100vh;
 }
+
+.special-card {
+  opacity: .9;
+}
+
+.special-input {
+  opacity: 1; 
+}

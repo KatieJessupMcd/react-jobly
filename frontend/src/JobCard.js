@@ -38,7 +38,7 @@ class JobCard extends Component {
 
   render() {
     return (
-      <div className="JobCard card my-3">
+      <div className="JobCard card my-3 special-card">
         <div className="card-body">
           <h5 className="card-title d-flex justify-content-between">
             <div>{this.props.title}</div>

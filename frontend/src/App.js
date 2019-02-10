@@ -106,7 +106,7 @@ class App extends Component {
           isLoggedIn={this.state.isLoggedIn}
           handleLogout={this.handleLogout}
         />
-        <div className="body container">
+        <div className="body container-fluid">
           <Routes
             isLoggedIn={this.state.isLoggedIn}
             handleLogin={this.handleLogin}

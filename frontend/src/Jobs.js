@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import JobCard from './JobCard';
 import SearchForm from './SearchForm';
 import JoblyApi from './JoblyApi';
+import jobsBackground from './jobsBackground.jpg';
 
 class Jobs extends Component {
   constructor(props) {
@@ -9,7 +10,6 @@ class Jobs extends Component {
     this.state = { jobs: [] };
     this.searchJobs = this.searchJobs.bind(this);
   }
-  static defaultProps = {};
 
   async componentDidMount() {
     try {
@@ -38,31 +38,40 @@ class Jobs extends Component {
   }
 
   render() {
-    // will need to pass a onSubmit handler to the searchform for generating a request
+    let backgroundStyle = {
+      background: `url(${jobsBackground})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no repeat',
+      height: '100vh',
+      width: '100%'
+    };
     return (
-        <div className="Jobs col-md-8 offset-md-2">
-          <SearchForm handleSearch={this.searchJobs} />
-          {this.state.jobs.length > 0 ? (
-            this.state.jobs.map(j => (
-              <JobCard
-                handleApply={this.props.handleApply}
-                handleUpdate={this.props.handleUpdate}
-                key={j.id}
-                title={j.title}
-                salary={j.salary}
-                equity={j.equity}
-                id={j.id}
-                currentUser={this.props.currentUser}
-                applied={this.props.currentUser.jobs.find(
-                  job => job.id === j.id
-                )}
-              />
-            ))
-          ) : (
-            <h3>Loading jobs...</h3>
-          )}
+      <div className="row">
+        <div style={backgroundStyle}>
+          <div className="Jobs col-md-8 offset-md-2">
+            <SearchForm handleSearch={this.searchJobs} />
+            {this.state.jobs.length > 0 ? (
+              this.state.jobs.map(j => (
+                <JobCard
+                  handleApply={this.props.handleApply}
+                  handleUpdate={this.props.handleUpdate}
+                  key={j.id}
+                  title={j.title}
+                  salary={j.salary}
+                  equity={j.equity}
+                  id={j.id}
+                  currentUser={this.props.currentUser}
+                  applied={this.props.currentUser.jobs.find(
+                    job => job.id === j.id
+                  )}
+                />
+              ))
+            ) : (
+              <h3>Loading jobs...</h3>
+            )}
+          </div>
         </div>
-    
+      </div>
     );
   }
 }

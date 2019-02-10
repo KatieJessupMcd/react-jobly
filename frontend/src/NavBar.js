@@ -3,8 +3,6 @@ import { NavLink } from 'react-router-dom';
 // import './NavBar.css';
 
 class NavBar extends Component {
-  static defaultProps = {};
-
   render() {
     const activeStyle = {
       fontWeight: 'bold'
@@ -12,8 +10,7 @@ class NavBar extends Component {
     if (this.props.isLoggedIn) {
       return (
         <nav
-          className="navbar navbar-expand-lg navbar-primary border-bottom"
-          style={{ backgroundColor: 'white' }}
+          className="navbar navbar-expand-lg navbar-light"
         >
           <NavLink
             activeStyle={activeStyle}
@@ -71,8 +68,7 @@ class NavBar extends Component {
     } else {
       return (
         <nav
-          className="navbar navbar-expand-lg navbar-primary border-bottom"
-          style={{ backgroundColor: 'white' }}
+          className="navbar navbar-expand-lg navbar-light"
         >
           <NavLink
             activeStyle={activeStyle}
