@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import CompanyCard from './CompanyCard';
 import SearchForm from './SearchForm';
 import JoblyApi from './JoblyApi';
+import companyListBackground from './companyListBackground.jpg';
 
 class Companies extends Component {
   constructor(props) {
@@ -38,22 +39,33 @@ class Companies extends Component {
   }
 
   render() {
+    let backgroundStyle = {
+      background: `url(${companyListBackground})`,
+      backgroundSize: 'cover',
+      backgroundRepeat: 'no repeat',
+      height: '100vh',
+      width: '100%'
+    };
     return (
-      <div className="Companies col-md-8 offset-md-2">
-        <SearchForm handleSearch={this.searchCompanies} />
-        {this.state.companies.length > 0 ? (
-          this.state.companies.map(c => (
-            <CompanyCard
-              key={c.handle}
-              handle={c.handle}
-              name={c.name}
-              desc={c.description}
-              logo={c.logo_url}
-            />
-          ))
-        ) : (
-          <h3>Loading companies...</h3>
-        )}
+      <div className="row">
+        <div className="Companies" style={backgroundStyle}>
+          <div className="Companies col-md-8 offset-md-2">
+            <SearchForm handleSearch={this.searchCompanies} />
+            {this.state.companies.length > 0 ? (
+              this.state.companies.map(c => (
+                <CompanyCard
+                  key={c.handle}
+                  handle={c.handle}
+                  name={c.name}
+                  desc={c.description}
+                  logo={c.logo_url}
+                />
+              ))
+            ) : (
+              <h3>Loading companies...</h3>
+            )}
+          </div>
+        </div>
       </div>
     );
   }
