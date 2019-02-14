@@ -2,8 +2,18 @@ import React, { Component } from 'react';
 import CompanyCard from './CompanyCard';
 import SearchForm from './SearchForm';
 import JoblyApi from './JoblyApi';
-import companyListBackground from './companyListBackground.jpg';
+// import companyListBackground from './companyListBackground.jpg';
 
+
+// var styles = {
+//   body: {
+//     backgroundColor: 'gray', 
+//     backgroundSize: 'fill',
+//     backgroundRepeat: 'no repeat',
+//     height: '100vh',
+//     width: '100%', 
+    
+//   }}
 class Companies extends Component {
   constructor(props) {
     super(props);
@@ -13,6 +23,9 @@ class Companies extends Component {
   }
 
   async componentDidMount() {
+  //   for(let i in styles.body){
+  //     document.body.style[i] = styles.body[i];
+  // }
     try {
       this.setState({
         companies: await JoblyApi.getAllCompanies()
@@ -25,6 +38,9 @@ class Companies extends Component {
       console.log('error msg', error);
     }
   }
+  // async componentWillUnmount(){
+  //   document.body.style.background = null;   
+  // }
 
   async searchCompanies(query) {
     try {
@@ -39,17 +55,17 @@ class Companies extends Component {
   }
 
   render() {
-    let backgroundStyle = {
-      background: `url(${companyListBackground})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no repeat',
-      height: '100vh',
-      width: '100%'
-    };
+    // let backgroundStyle = {
+    //   background: `url(${companyListBackground})`,
+    //   backgroundSize: 'cover',
+    //   backgroundRepeat: 'no repeat',
+    //   height: '100vh',
+    //   width: '100%'
+    // };
     return (
       <div className="row">
-        <div className="Companies" style={backgroundStyle}>
-          <div className="Companies col-md-8 offset-md-2">
+        <div className="Companies col-md-8 offset-md-2">
+          <div className="Companies-Info">
             <SearchForm handleSearch={this.searchCompanies} />
             {this.state.companies.length > 0 ? (
               this.state.companies.map(c => (

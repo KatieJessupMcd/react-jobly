@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import JobCard from './JobCard';
 import SearchForm from './SearchForm';
 import JoblyApi from './JoblyApi';
-import jobsBackground from './jobsBackground.jpg';
+// import jobsBackground from './jobsBackground.jpg';
 
 class Jobs extends Component {
   constructor(props) {
@@ -38,16 +38,16 @@ class Jobs extends Component {
   }
 
   render() {
-    let backgroundStyle = {
-      background: `url(${jobsBackground})`,
-      backgroundSize: 'cover',
-      backgroundRepeat: 'no repeat',
-      height: '100vh',
-      width: '100%'
-    };
+    // let backgroundStyle = {
+    //   background: `url(${jobsBackground})`,
+    //   backgroundSize: 'cover',
+    //   backgroundRepeat: 'no repeat',
+    //   height: '100vh',
+    //   width: '100%'
+    // };
     return (
       <div className="row">
-        <div style={backgroundStyle}>
+        
           <div className="Jobs col-md-8 offset-md-2">
             <SearchForm handleSearch={this.searchJobs} />
             {this.state.jobs.length > 0 ? (
@@ -71,7 +71,7 @@ class Jobs extends Component {
             )}
           </div>
         </div>
-      </div>
+      
     );
   }
 }

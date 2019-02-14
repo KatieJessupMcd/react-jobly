@@ -6,6 +6,7 @@ import { withRouter } from 'react-router-dom';
 import decode from 'jwt-decode';
 import './App.css';
 
+
 class App extends Component {
   constructor(props) {
     super(props);
@@ -43,7 +44,14 @@ class App extends Component {
       this.setState(
         {
           isLoggedIn: true,
-          currentUser: { username, first_name, last_name, email, photo_url: '', jobs: [] }
+          currentUser: {
+            username,
+            first_name,
+            last_name,
+            email,
+            photo_url: '',
+            jobs: []
+          }
         },
         () => this.props.history.replace('/jobs')
       );
@@ -100,21 +108,24 @@ class App extends Component {
   }
 
   render() {
+
     return (
       <div className="App">
-        <NavBar
-          isLoggedIn={this.state.isLoggedIn}
-          handleLogout={this.handleLogout}
-        />
-        <div className="body container-fluid">
-          <Routes
+        <div id="scroll-container">
+          <NavBar
             isLoggedIn={this.state.isLoggedIn}
-            handleLogin={this.handleLogin}
-            handleSignUp={this.handleSignUp}
-            currentUser={this.state.currentUser}
-            addJobToUser={this.addJobToUser}
-            handleUpdate={this.updateCurrentUser}
+            handleLogout={this.handleLogout}
           />
+          <div className="body container-fluid" >
+            <Routes
+              isLoggedIn={this.state.isLoggedIn}
+              handleLogin={this.handleLogin}
+              handleSignUp={this.handleSignUp}
+              currentUser={this.state.currentUser}
+              addJobToUser={this.addJobToUser}
+              handleUpdate={this.updateCurrentUser}
+            />
+          </div>
         </div>
       </div>
     );
