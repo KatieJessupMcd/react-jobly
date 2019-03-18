@@ -81,7 +81,7 @@ class Companies extends Component {
     // Logic to display page numbers
     let pageNumbers = [];
     for (let i = 1; i <= Math.ceil(companies.length / companiesPerPage); i++) {
-      pageNumbers.push(1);
+      pageNumbers.push(i);
     }
     return (
       <div className="row">
