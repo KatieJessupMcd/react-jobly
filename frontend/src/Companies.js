@@ -68,28 +68,29 @@ class Companies extends Component {
     //   height: '100vh',
     //   width: '100%'
     // };
-    let { companies, currentPage, companiesPerPage } = this.state;
+    // let { companies, currentPage, companiesPerPage } = this.state;
+    let { companies } = this.state;
 
     // Logic for displaying companies
-    let indexOfLastCompany = currentPage * companiesPerPage;
-    let indexOfFirstCompany = indexOfLastCompany - companiesPerPage;
-    let currentCompanies = companies.slice(
-      indexOfFirstCompany,
-      indexOfLastCompany
-    );
+    // let indexOfLastCompany = currentPage * companiesPerPage;
+    // let indexOfFirstCompany = indexOfLastCompany - companiesPerPage;
+    // let currentCompanies = companies.slice(
+    //   indexOfFirstCompany,
+    //   indexOfLastCompany
+    // );
 
     // Logic to display page numbers
-    let pageNumbers = [];
-    for (let i = 1; i <= Math.ceil(companies.length / companiesPerPage); i++) {
-      pageNumbers.push(i);
-    }
+    // let pageNumbers = [];
+    // for (let i = 1; i <= Math.ceil(companies.length / companiesPerPage); i++) {
+    //   pageNumbers.push(i);
+    // }
     return (
       <div className="row">
         <div className="Companies col-md-8 offset-md-2">
           <div className="Companies-Info">
             <SearchForm handleSearch={this.searchCompanies} />
-            {currentCompanies.length > 0 ? (
-              currentCompanies.map(c => (
+            {companies.length > 0 ? (
+              companies.map(c => (
                 <CompanyCard
                   key={c.handle}
                   handle={c.handle}
@@ -103,7 +104,7 @@ class Companies extends Component {
             )}
           </div>
         </div>
-        <ul id="page-numbers">
+        {/* <ul id="page-numbers">
           {pageNumbers.map(number => {
             return (
               <li key={number} id={number} onClick={this.handleClick}>
@@ -111,7 +112,7 @@ class Companies extends Component {
               </li>
             );
           })}
-        </ul>
+        </ul> */}
       </div>
     );
   }
